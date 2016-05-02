@@ -1,0 +1,5 @@
+resources/
+.env
+node_modules/
+game_object_example.json
+

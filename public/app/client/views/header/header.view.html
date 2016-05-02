@@ -1,0 +1,16 @@
+<nav ng-controller="HeaderController as model">
+	<div>
+		<div>
+			<p>Drawing App</p>
+		</div>
+		<div>
+			<p ng-show="sessionId">{{sessionId}}</p>
+		</div>
+		<ul>
+			<li ng-show="currentUser" class="active"><a href="#/profile">{{currentUser.username}}</a></li>
+			<li ng-hide="currentUser"><a href="#/login">Login</a></li>
+			<li ng-hide="currentUser"><a href="#/register">register</a></li>
+			<li ng-show="currentUser"><a ng-click="model.logout()">logout</a></li>
+		</ul>
+	</div>
+</nav>

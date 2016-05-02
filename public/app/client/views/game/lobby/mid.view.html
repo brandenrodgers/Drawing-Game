@@ -1,0 +1,15 @@
+<div class="col-sm-8 col-sm-offset-2">
+    <h2>Mid Game Lobby</h2>
+    <h4>session Id: {{model.sessionId}}</h4>
+    <h4>Username: {{model.currentUser.username}}</h4>
+    <h4>Waiting for others to finish:</h4>
+    <div ng-show="model.players" class="player-container">
+        <div ng-repeat="player in model.players" ng-if="player !== model.currentUser.username" class="player-box">
+            <div>
+                <div>{{player}}</div>
+            </div>
+        </div>
+    </div>
+    <button ng-hide="model.finalRound || !model.master" ng-click="model.nextRound()" class="btn btn-primary btn-block">Next Round</button>
+    <button ng-show="model.finalRound" ng-click="model.results()" class="btn btn-primary btn-block">View Results</button>
+</div>

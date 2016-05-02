@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Drawing Game">
+    <meta name="author" content="Branden Rodgers">
+
+    <title>Drawing Game</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Fontawesome -->
+    <Link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <!-- Load all JS Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-route.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="app/client/views/header/header.controller.js"></script>
+    <script src="app/client/views/main/main.controller.js"></script>
+    <script src="app/client/views/user/login.controller.js"></script>
+    <script src="app/client/views/user/register.controller.js"></script>
+    <script src="app/client/views/user/profile.controller.js"></script>
+    <script src="app/client/views/game/join.controller.js"></script>
+    <script src="app/client/views/game/lobby/start.controller.js"></script>
+    <script src="app/client/views/game/lobby/mid.controller.js"></script>
+    <script src="app/client/views/game/lobby/end.controller.js"></script>
+    <script src="app/client/views/game/drawing.controller.js"></script>
+    <script src="app/client/views/game/guessing.controller.js"></script>
+    <script src="app/client/services/user.service.client.js"></script>
+    <script src="app/client/services/game.service.client.js"></script>
+    <script src="app/client/services/socket.service.client.js"></script>
+</head>
+
+<body ng-app="MainController">
+    <div ng-include="'app/client/views/header/header.view.html'"></div>
+    <div>
+        <div ng-view></div>
+    </div>
+</body>
+
+</html>

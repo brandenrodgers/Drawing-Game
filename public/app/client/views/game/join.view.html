@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <h4>Enter the Session ID</h4>
+    </div>
+    <form class="col-xs-8 col-xs-offset-2">
+        <p class="bg-danger">{{model.error}}</p>
+        <div class="form-group">
+            <label for="sessionId">Session ID:</label>
+            <input ng-model="model.sessionId" type="text" class="form-control" id="sessionId" placeholder="Session ID">
+        </div>
+        <div class="form-group">
+            <button ng-click="model.joinGame(model.sessionId)" type="submit" class="btn btn-primary btn-block">Join</button>
+        </div>
+    </form>
+</div>

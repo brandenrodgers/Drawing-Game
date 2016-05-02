@@ -1,0 +1,19 @@
+<div ng-show="model.first" class="col-xs-8 col-xs-offset-2">
+    <div class="form-group">
+        <label for="prompts">Select Prompt:</label>
+        <select ng-model="model.selectedPrompt" class="form-control" id="prompts">
+            <option ng-repeat="prompt in model.promptList">{{prompt}}</option>
+        </select>
+    </div>
+</div>
+<div>
+    <h1 ng-hide="model.first">{{model.guessToDraw}}</h1>
+</div>
+<div class="col-xs-8 col-xs-offset-2">
+    <canvas width="500" height="500" id="canvas" drawing></canvas>
+</div>
+
+<div class="col-xs-8 col-xs-offset-2">
+    <button ng-click="model.reset()" class="btn btn-primary btn-block">Reset</button>
+    <button ng-click="model.save()" class="btn btn-primary btn-block">Save</button>
+</div>

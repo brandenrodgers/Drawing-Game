@@ -1,0 +1,21 @@
+<div class="col-sm-8 col-sm-offset-2">
+    <h2>End Results</h2>
+    <h4>session Id: {{model.sessionId}}</h4>
+    <h4>Waiting for others to finish:</h4>
+    <div ng-show="model.players">
+        <div ng-repeat="player in model.players">
+            <h2>Player: {{player.username}}</h2>
+            <h3>Starting prompt: {{player.prompt}}</h3>
+            <div ng-repeat="item in player.chain" ng-switch on="item.type">
+                <div ng-switch-when="drawing">
+                    <div>person: {{item.username}}</div>
+                    <img ng-src="{{item.value}}" />
+                </div>
+                <div ng-switch-when="guess">
+                    <div>person: {{item.username}}</div>
+                    <div>{{item.value}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
