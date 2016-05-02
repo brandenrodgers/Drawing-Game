@@ -11,9 +11,9 @@ var session = require('express-session');
 var socket = require('./server/socket.js');
 
 var ipaddress = '127.0.0.1';
-var port = 3000;
+var port = process.env.PORT || 80;
 
-var connectionString = 'mongodb://127.0.0.1:27017/drawing';
+var connectionString = 'mongodb://localhost/drawing';
 // connect to the database
 var db = mongoose.connect(connectionString);
 
@@ -35,9 +35,8 @@ app.get('/', function(req, res){
 
 require('./server/app.js')(app, db, mongoose);
 
-var server = app.listen(port, ipaddress, function(){
-    console.log('listening on: ' + ipaddress + ':' + port);
-});
+var server = app.listen(port);
+console.log('listening on: ' + port);
 
 var io = require('socket.io').listen(server);
 
