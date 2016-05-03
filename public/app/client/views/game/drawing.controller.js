@@ -92,8 +92,8 @@
                         }
                     }
                     else {
-                        lastX = event.targetTouches[0].pageX - element[0].offsetLeft;
-                        lastY = event.targetTouches[0].pageY - element[0].offsetTop;
+                        lastX = event.originalEvent.targetTouches[0].pageX - (element[0].offsetLeft + element[0].offsetParent.offsetLeft);
+                        lastY = event.originalEvent.targetTouches[0].pageY - (element[0].offsetTop + element[0].offsetParent.offsetTop);
                     }
 
                     // begins new line
@@ -104,6 +104,8 @@
 
                 function drawMove(event){
                     if(drawing){
+                        var currentX;
+                        var currentY;
                         // get current mouse position
                         if (event.type == "mousemove") {
                             if (event.offsetX !== undefined) {
@@ -115,8 +117,8 @@
                             }
                         }
                         else {
-                            currentX = event.targetTouches[0].pageX - element[0].offsetLeft;
-                            currentY = event.targetTouches[0].pageY - element[0].offsetTop;
+                            currentX = event.originalEvent.targetTouches[0].pageX - (element[0].offsetLeft + element[0].offsetParent.offsetLeft);
+                            currentY = event.originalEvent.targetTouches[0].pageY - (element[0].offsetTop + element[0].offsetParent.offsetTop);
                         }
 
                         draw(lastX, lastY, currentX, currentY);
