@@ -2,11 +2,11 @@
 <img ng-src="{{model.drawingToGuess}}" />
 
 <div class="form-group">
-    <label for="comment">Comment:</label>
+    <label for="comment">Write your best guess here:</label>
     <textarea ng-model="model.guess" class="form-control" rows="5" id="comment"></textarea>
 </div>
 
 <div class="col-xs-8 col-xs-offset-2">
     <p class="bg-danger">{{model.error}}</p>
-    <button ng-click="model.save(model.guess)" class="btn btn-primary btn-block">Save</button>
+    <button ng-click="model.save(model.guess)" class="btn btn-primary btn-block">Submit</button>
 </div>

@@ -7,7 +7,8 @@
     </div>
 </div>
 <div>
-    <h1 ng-hide="model.first">{{model.guessToDraw}}</h1>
+    <h2 ng-hide="model.first">Previous Guess:</h2>
+    <h3 ng-hide="model.first">{{model.guessToDraw}}</h3>
 </div>
 <div class="col-sm-8 col-xs-10 col-sm-offset-2 col-xs-offset-1">
     <canvas width="350px" height="400px" id="canvas" drawing></canvas>
@@ -15,5 +16,5 @@
 
 <div class="col-xs-8 col-xs-offset-2">
     <button ng-click="model.reset()" class="btn btn-primary btn-block">Reset</button>
-    <button ng-click="model.save()" class="btn btn-primary btn-block">Save</button>
+    <button ng-click="model.save()" class="btn btn-primary btn-block">Submit</button>
 </div>
