@@ -43,7 +43,7 @@
                 .then(
                     function (response) {
                         if (response.data) {
-                            $location.url("/midlobby/" + vm.sessionId);
+                            $location.url("/lobby/mid/" + vm.sessionId);
                         }
                     },
                     function (err) {

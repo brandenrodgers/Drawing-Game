@@ -6,7 +6,7 @@ module.exports = function(app, gameModel) {
     app.post("/api/join", joinGame);
     app.post("/api/start", startGame);
     app.get("/api/players/:sessionId", getPlayers);
-    app.get("/api/lobby/:sessionId", getPlayersInLobby);
+    app.get("/api/lobby/mid/:sessionId", getPlayersInMidLobby);
     app.post("/api/drawing/new", addNewDrawing);
     app.post("/api/guess/new", addNewGuess);
     app.post("/api/next/:sessionId", startNextRound);
@@ -36,7 +36,7 @@ module.exports = function(app, gameModel) {
         res.json(players);
     }
 
-    function getPlayersInLobby(req, res) {
+    function getPlayersInMidLobby(req, res) {
         var sessionId = req.params.sessionId;
         var players = gameModel.getPlayersInLobby(sessionId);
         res.json(players);

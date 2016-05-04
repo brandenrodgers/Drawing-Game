@@ -11,6 +11,8 @@ module.exports = function() {
         getPlayersForSession: getPlayersForSession,
         addNewDrawing: addNewDrawing,
         addNewGuess: addNewGuess,
+        getPromptIds: getPromptIds,
+        addPrompts: addPrompts,
         getPlayersInLobby: getPlayersInLobby,
         startNextRound: startNextRound,
         getNextData: getNextData,
@@ -25,6 +27,7 @@ module.exports = function() {
             round: 0,
             started: false,
             lobby: [],
+            promptIds: [],
             players: [{
                 _id: user._id,
                 username: user.username,
@@ -58,6 +61,25 @@ module.exports = function() {
             if(games[x].sessionId == sessionId) {
                 games[x].started = true;
                 return sessionId;
+            }
+        }
+        return null;
+    }
+
+    function getPromptIds(sessionId){
+        for(var x in games) {
+            if(games[x].sessionId == sessionId) {
+                return games[x].promptIds;
+            }
+        }
+        return null;
+    }
+
+    function addPrompts(sessionId, promptIds){
+        for(var x in games) {
+            if(games[x].sessionId == sessionId) {
+                games[x].promptIds = games[x].promptIds.concat(promptIds);
+                return promptIds;
             }
         }
         return null;

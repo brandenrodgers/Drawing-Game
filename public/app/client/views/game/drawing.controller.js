@@ -19,7 +19,9 @@
 
         function init(){
             if (vm.first) {
-                vm.promptList = ["Fat Cat", "Blink", "think fast", "testing"];
+                vm.promptList = $rootScope.prompts.map(function(prompt){
+                    return prompt.value;
+                });
             } else {
                 GameService
                     .getNextData(vm.sessionId, vm.currentUser._id)
@@ -48,7 +50,7 @@
                 .then(
                     function(response){
                         if (response.data){
-                            $location.url("/midlobby/" + vm.sessionId);
+                            $location.url("/lobby/mid/" + vm.sessionId);
                         }
                     },
                     function(err){

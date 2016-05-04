@@ -40,7 +40,7 @@
                     loggedin: checkLoggedin
                 }
             })
-            .when("/startlobby/:sessionId/:master?", {
+            .when("/lobby/start/:sessionId/:master?", {
                 templateUrl: "app/client/views/game/lobby/start.view.html",
                 controller: "StartLobbyController",
                 controllerAs: "model",
@@ -48,7 +48,7 @@
                     loggedin: checkLoggedin
                 }
             })
-            .when("/midlobby/:sessionId/:master?", {
+            .when("/lobby/mid/:sessionId/:master?", {
                 templateUrl: "app/client/views/game/lobby/mid.view.html",
                 controller: "MidLobbyController",
                 controllerAs: "model",
@@ -56,7 +56,7 @@
                     loggedin: checkLoggedin
                 }
             })
-            .when("/endlobby/:sessionId/:master?", {
+            .when("/lobby/end/:sessionId/:master?", {
                 templateUrl: "app/client/views/game/lobby/end.view.html",
                 controller: "EndLobbyController",
                 controllerAs: "model",

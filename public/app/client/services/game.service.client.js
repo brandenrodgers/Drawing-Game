@@ -13,14 +13,10 @@
             startGame: startGame,
             getPlayers: getPlayers,
             sendDrawing: sendDrawing,
-            getLobby: getLobby,
+            getMidLobby: getMidLobby,
             sendGuess: sendGuess,
             startNextRound: startNextRound,
-            getNextData: getNextData,
-            // addDrawing: addDrawing,
-            // addGuess: addGuess,
-            // getDrawing: getDrawing,
-            // getGuess: getGuess
+            getNextData: getNextData
         };
         return api;
 
@@ -40,8 +36,8 @@
             return $http.get("/api/players/" + sessionId);
         }
 
-        function getLobby(sessionId) {
-            return $http.get("/api/lobby/" + sessionId);
+        function getMidLobby(sessionId) {
+            return $http.get("/api/lobby/mid" + sessionId);
         }
 
         function sendDrawing(sessionId, user, image, prompt) {

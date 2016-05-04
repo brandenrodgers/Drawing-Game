@@ -24,7 +24,7 @@
                             username: response.data.username
                         });
                         $rootScope.sessionId = sessionId;
-                        $location.url("/startlobby/" + sessionId)
+                        $location.url("/lobby/start/" + sessionId)
                     }
                     else {
                         vm.error = "Unable to join game";

@@ -24,7 +24,7 @@
             });
 
             GameService
-                .getLobby(vm.sessionId)
+                .getMidLobby(vm.sessionId)
                 .then(function(response){
                     if (response.data){
                         vm.players = response.data;
@@ -77,7 +77,7 @@
         }
 
         function results(){
-            $location.url("/endlobby/" + vm.sessionId);
+            $location.url("/lobby/end/" + vm.sessionId);
         }
 
 

@@ -7,7 +7,7 @@
         .controller("StartLobbyController", startLobbyController);
 
 
-    function startLobbyController(GameService, SocketService, $rootScope, $routeParams, $location){
+    function startLobbyController(GameService, SocketService, PromptService, $rootScope, $routeParams, $location){
         var vm = this;
 
         vm.sessionId = $routeParams.sessionId;
@@ -23,7 +23,15 @@
                     if (response.data){
                         vm.players = response.data;
                     }
-                })
+                });
+
+            PromptService.getGame(vm.sessionId)
+                .then(function(response){
+                    if (response.data){
+                       $rootScope.prompts = response.data;
+                    }
+                });
+
         }
         init();
 
