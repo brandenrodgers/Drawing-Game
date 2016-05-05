@@ -1,6 +1,6 @@
 /* Styles go here */
 
-body{
+body {
     font-family: "Eau Naturelle", "Helvetica", "Arial", "Lucida Grande", "Gill Sans", "Verdana", sans-serif;
     font-weight:100;
     color: #1f2e2e;
@@ -32,9 +32,20 @@ nav {
     border: 3px solid black;
 }
 
+/** END LOBBY */
+.game-result {
+    border: 1px solid black;
+    overflow-x: scroll;
+    white-space: nowrap;
+}
 
+.result-item {
+    display: inline-block;
+    margin-right: 15px;
+    border-right: 1px dotted black;
+}
 
-/** Probably wanna fix */
+/** CANVAS  */
 #canvas{
     border-bottom: 1px solid rgba(0,0,0,0.3);
     background-color: #fff;

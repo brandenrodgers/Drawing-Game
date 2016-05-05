@@ -3,10 +3,10 @@
     <h4>session Id: {{model.sessionId}}</h4>
     <h4>Username: {{model.currentUser.username}}</h4>
     <h4>Other Players:</h4>
-    <div ng-show="model.players" class="player-container">
-        <div ng-repeat="player in model.players" ng-if="player.username !== model.currentUser.username" class="player-box">
+    <div ng-show="model.lobbyPlayers" class="player-container">
+        <div ng-repeat="player in model.lobbyPlayers" ng-if="player !== model.currentUser.username" class="player-box">
             <div>
-                <div>{{player.username}}</div>
+                <div>{{player}}</div>
             </div>
         </div>
     </div>

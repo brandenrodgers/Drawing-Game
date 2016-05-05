@@ -6,14 +6,16 @@
         <div ng-repeat="player in model.players">
             <h2>Player: {{player.username}}</h2>
             <h3>Starting prompt: {{player.prompt}}</h3>
-            <div ng-repeat="item in player.chain" ng-switch on="item.type">
-                <div ng-switch-when="drawing">
-                    <div>person: {{item.username}}</div>
-                    <img ng-src="{{item.value}}" />
-                </div>
-                <div ng-switch-when="guess">
-                    <div>person: {{item.username}}</div>
-                    <div>{{item.value}}</div>
+            <div class="game-result">
+                <div class="result-item" ng-repeat="item in player.chain" ng-switch on="item.type">
+                    <div  ng-switch-when="drawing">
+                        <div>{{item.username}} Drew:</div>
+                        <img ng-src="{{item.value}}" />
+                    </div>
+                    <div ng-switch-when="guess">
+                        <div>{{item.username}} Guessed:</div>
+                        <h2>{{item.value}}</h2>
+                    </div>
                 </div>
             </div>
         </div>

@@ -13,15 +13,23 @@
         vm.sessionId = $routeParams.sessionId;
         vm.master = $routeParams.master;
         vm.currentUser = $rootScope.currentUser;
-        vm.players = [];
+        vm.lobbyPlayers = [];
         vm.startGame = startGame;
 
         function init(){
+            if (!vm.master) {
+                SocketService.emit('player:joined', {
+                    username: vm.currentUser.username
+                });
+            }
+
             GameService
                 .getPlayers(vm.sessionId)
                 .then(function(response){
                     if (response.data){
-                        vm.players = response.data;
+                        vm.lobbyPlayers = response.data.map(function(player){
+                            return player.username;
+                        });
                     }
                 });
 
@@ -36,19 +44,19 @@
         init();
 
         // When a new player joins the lobby
-        SocketService.on('new:player', function(playerData) {
-            vm.players.push(playerData);
+        SocketService.on('new:player', function(data) {
+            vm.lobbyPlayers.push(data.username);
         });
 
         // When the game is started
         SocketService.on('game:started', function(data) {
-            $rootScope.totalPlayers = data.totalPlayers;
+            $rootScope.gamePlayers = data.gamePlayers;
             $rootScope.round = 0;
             $location.url('/drawing/' + vm.sessionId + "/first");
         });
 
         function startGame(){
-            if (vm.players.length > 1) {
+            if (vm.lobbyPlayers.length > 1) {
                 GameService
                     .startGame(vm.sessionId)
                     .then(function (response) {
@@ -56,9 +64,9 @@
                             //Send game start to socket to broadcast
                             SocketService
                                 .emit('game:startclick', {
-                                    totalPlayers: vm.players.length
+                                    gamePlayers: vm.lobbyPlayers
                                 });
-                            $rootScope.totalPlayers = vm.players.length;
+                            $rootScope.gamePlayers = vm.lobbyPlayers.slice();
                             $rootScope.master = true;
                             $rootScope.round = 0;
                             $location.url('/drawing/' + vm.sessionId + "/first");

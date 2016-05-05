@@ -13,7 +13,7 @@ module.exports = function(socket){
 
   socket.on('game:startclick', function(data) {
     socket.broadcast.emit('game:started', {
-      totalPlayers: data.totalPlayers,
+      gamePlayers: data.gamePlayers,
     });
   });
 

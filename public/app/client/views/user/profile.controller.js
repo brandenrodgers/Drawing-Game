@@ -19,7 +19,6 @@
             GameService
                 .createNewGame(vm.currentUser)
                 .then(function(response){
-                    console.log(response);
                     if(response.data){
                         $rootScope.sessionId = response.data;
                         $location.url("/lobby/start/" + response.data + "/master");

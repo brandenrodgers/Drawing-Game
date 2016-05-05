@@ -20,9 +20,6 @@
                 .join({sessionId: sessionId, user: vm.currentUser})
                 .then(function(response){
                     if(response.data){
-                        SocketService.emit('player:joined', {
-                            username: response.data.username
-                        });
                         $rootScope.sessionId = sessionId;
                         $location.url("/lobby/start/" + sessionId)
                     }

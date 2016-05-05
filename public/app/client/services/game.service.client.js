@@ -37,7 +37,7 @@
         }
 
         function getMidLobby(sessionId) {
-            return $http.get("/api/lobby/mid" + sessionId);
+            return $http.get("/api/lobby/mid/" + sessionId);
         }
 
         function sendDrawing(sessionId, user, image, prompt) {
