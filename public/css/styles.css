@@ -1,4 +1,7 @@
 /* Styles go here */
+html {
+    max-width: 100%;
+}
 
 body {
     font-family: "Eau Naturelle", "Helvetica", "Arial", "Lucida Grande", "Gill Sans", "Verdana", sans-serif;
